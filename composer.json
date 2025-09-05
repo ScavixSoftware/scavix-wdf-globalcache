@@ -1,0 +1,15 @@
+{
+	"name": "scavix-wdf/globalcache",
+	"version": "2025.9.0",
+	"description": "Global cache components",
+	"type": "library",
+	"license": "LGPL-3.0-or-later",
+	"autoload": {
+		"files": [
+			"bootstrap.php"
+		]
+	},
+	"require": {
+		"scavix-wdf/core": "^2025.9.0"
+	}
+}
