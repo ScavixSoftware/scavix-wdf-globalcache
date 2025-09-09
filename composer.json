@@ -1,15 +1,14 @@
 {
-	"name": "scavix/wdf-globalcache",
-	"version": "1.0.0",
-	"description": "Global cache components",
-	"type": "library",
-	"license": "LGPL-3.0-or-later",
-	"autoload": {
-		"files": [
-			"bootstrap.php"
-		]
-	},
-	"require": {
-		"scavix/wdf-core": "^1.0.0"
-	}
+  "name": "scavix/wdf-globalcache",
+  "description": "Global cache components",
+  "type": "library",
+  "license": "LGPL-3.0-or-later",
+  "autoload": {
+    "files": [
+      "bootstrap.php"
+    ]
+  },
+  "require": {
+    "scavix/wdf-core": "^1.0.0"
+  }
 }
