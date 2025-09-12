@@ -6,7 +6,7 @@ It is useful to store global data like resource-paths and buffered user-independ
 
 Installation
 ============
-Install the package with `composer require scavix/wdf-globalcache`
+Install the package with `composer require {{name}}`.
 
 Configuration
 =============

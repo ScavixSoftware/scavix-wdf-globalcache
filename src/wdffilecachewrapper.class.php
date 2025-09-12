@@ -81,11 +81,11 @@ class WdfFileCacheWrapper
     public function set($key, $val, $ttl = 0)
     {
         $eol = time() + (($ttl <= 0) ? 86400 : $ttl);
-        $val = array(
-            'exp' => $eol>time()?$eol:false,
+        $val = [
+            'exp' => $eol > time() ? $eol : false,
             'key' => $key,
             'data' => session_serialize($val),
-        );
+        ];
         // Write to temp file first to ensure atomicity
         $um = umask(0);
         $dest = $this->getPath($key);
