@@ -22,8 +22,7 @@
  * @copyright since 2025 Scavix Software GmbH & Co. KG
  * @license http://www.opensource.org/licenses/lgpl-license.php LGPL
  */
-
-use ScavixWDF\Wdf;
+namespace ScavixWDF\Wdf;
 
 /**
  * @internal Wrapper class file-based caching
@@ -73,7 +72,7 @@ class WdfFileCacheWrapper
         $res = session_unserialize($c);
         if (!isset($data['exp']) && isset($res['expiry']))
             $res['exp'] = $res['expiry'];
-        elseif( !$metadata_only )
+        elseif (!$metadata_only && is_array($res) && isset($res['data']) )
             $res['data'] = session_unserialize($res['data']);
         return $res;
     }
@@ -105,9 +104,9 @@ class WdfFileCacheWrapper
             return $this->map[$key]['data'];
 
         $val = $this->unpack($file);
-        if (!isset($val['key']) || $val['key'] != $key )
-            return $default;
 
+        if (!isset($val['key']) || $val['key'] != $key)
+            return $default;
         if (!$val['exp'] || $val['exp'] > time())
         {
             $this->map[$key] = $val;

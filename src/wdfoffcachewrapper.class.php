@@ -22,6 +22,7 @@
  * @copyright since 2025 Scavix Software GmbH & Co. KG
  * @license http://www.opensource.org/licenses/lgpl-license.php LGPL
  */
+namespace ScavixWDF\Wdf;
 
 /**
  * @internal NULL-Wrapper for global cache

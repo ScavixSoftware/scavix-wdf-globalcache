@@ -24,6 +24,9 @@
  */
 
 use ScavixWDF\Wdf;
+use ScavixWDF\Wdf\WdfDbCacheWrapper;
+use ScavixWDF\Wdf\WdfFileCacheWrapper;
+use ScavixWDF\Wdf\WdfOffCacheWrapper;
 
 Wdf::RegisterPackage('globalcache', 'globalcache_init');
 
@@ -76,7 +79,7 @@ function globalcache_init()
             $GLOBALS['globalcache_handler'] = new WdfFileCacheWrapper($prefix);
             break;
         case globalcache_CACHE_DB:
-            $GLOBALS['globalcache_handler'] = new WdfDBCacheWrapper($prefix);
+            $GLOBALS['globalcache_handler'] = new WdfDbCacheWrapper($prefix);
             break;
         default:
             if( $CONFIG['globalcache']['CACHE'] != globalcache_CACHE_OFF )
