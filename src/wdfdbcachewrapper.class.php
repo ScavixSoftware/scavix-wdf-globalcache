@@ -52,7 +52,7 @@ class WdfDbCacheWrapper
                 [md5($key)]
             );
         }
-        catch (Exception $ex)
+        catch (\Exception $ex)
         {
             return $default;
         }
@@ -80,7 +80,7 @@ class WdfDbCacheWrapper
                     [md5($key), $key, $val]
                 );
         }
-        catch (Exception $ex)
+        catch (\Exception $ex)
         {
             $this->ds->ExecuteSql("CREATE TABLE IF NOT EXISTS wdf_cache (
                 ckey VARCHAR(32)  NOT NULL,
@@ -109,7 +109,7 @@ class WdfDbCacheWrapper
         {
             $this->ds->ExecuteSql("DELETE FROM wdf_cache WHERE ckey=?", md5($key));
         }
-        catch (Exception $ex)
+        catch (\Exception $ex)
         {
         }
         return true;
@@ -122,7 +122,7 @@ class WdfDbCacheWrapper
         {
             $this->ds->ExecuteSql($sql);
         }
-        catch (Exception $ex)
+        catch (\Exception $ex)
         {
         }
         return true;
@@ -137,7 +137,7 @@ class WdfDbCacheWrapper
             $ret .= "DSN: " . $this->ds->GetDsn() . "\n";
             $ret .= "Records: " . $this->ds->ExecuteScalar("SELECT count(*) FROM wdf_cache") . "\n";
         }
-        catch (Exception $ex)
+        catch (\Exception $ex)
         {
         }
         return $ret;
@@ -152,7 +152,7 @@ class WdfDbCacheWrapper
             );
             return $rs->Enumerate('full_key');
         }
-        catch (Exception $ex)
+        catch (\Exception $ex)
         {
         }
         return [];

@@ -24,6 +24,8 @@
  */
 namespace ScavixWDF\Wdf;
 
+use ScavixWDF\Wdf;
+
 /**
  * @internal Wrapper class file-based caching
  */
