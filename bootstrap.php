@@ -69,7 +69,7 @@ function globalcache_init()
 		$prefix = $CONFIG['globalcache']['key_prefix'];
     else
     {
-        $servername = isset($_SERVER['SERVER_NAME'])?$_SERVER['SERVER_NAME']:"SCAVIX_WDF_SERVER";
+        $servername = $_SERVER['SERVER_NAME'] ?? "SCAVIX_WDF_SERVER";
         $prefix = "K" . md5($servername . "-" . session_name() . "-" . getAppVersion('nc'));
     }
 
