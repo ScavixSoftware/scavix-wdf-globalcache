@@ -104,7 +104,7 @@ function globalcache_set($key, $value, $ttl = false)
     if( !hook_already_fired(HOOK_POST_INIT) )
         return false;
 
-    return $GLOBALS['globalcache_handler']->set($key, $value, $ttl);
+    return ($GLOBALS['globalcache_handler']??null)?->set($key, $value, $ttl);
 }
 
 /**
@@ -121,7 +121,7 @@ function globalcache_get($key, $default = false)
     if( !hook_already_fired(HOOK_POST_INIT) )
         return $default;
 
-    return $GLOBALS['globalcache_handler']->get($key, $default);
+    return ($GLOBALS['globalcache_handler']??null)?->get($key, $default);
 }
 
 /**
@@ -137,7 +137,7 @@ function globalcache_clear($expired_only=false)
     if( !hook_already_fired(HOOK_POST_INIT) )
         return false;
 
-	return $GLOBALS['globalcache_handler']->clear($expired_only);
+	return ($GLOBALS['globalcache_handler']??null)?->clear($expired_only);
 }
 
 /**
@@ -155,7 +155,7 @@ function globalcache_delete($key)
     if( !hook_already_fired(HOOK_POST_INIT) )
         return false;
 
-    return $GLOBALS['globalcache_handler']->delete($key);
+    return ($GLOBALS['globalcache_handler']??null)?->delete($key);
 }
 
 /**
@@ -171,7 +171,7 @@ function globalcache_info()
     if( !hook_already_fired(HOOK_POST_INIT) )
         return false;
 
-    return $GLOBALS['globalcache_handler']->info();
+    return ($GLOBALS['globalcache_handler']??null)?->info();
 }
 
 /**
@@ -186,5 +186,5 @@ function globalcache_list_keys()
     if( !hook_already_fired(HOOK_POST_INIT) )
         return [];
 
-    return $GLOBALS['globalcache_handler']->keys();
+    return ($GLOBALS['globalcache_handler']??null)?->keys();
 }
