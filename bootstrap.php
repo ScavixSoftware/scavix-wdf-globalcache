@@ -144,8 +144,6 @@ function globalcache_clear($expired_only=false)
  * Delete a value from the global cache.
  *
  * @param string $key the key of the value
- * @param mixed $value the object/string to save
- * @param int $ttl time to live (in seconds) of the caching
  * @return bool true if ok, false on error
  *
  * @suppress PHP0404,PHP0417
