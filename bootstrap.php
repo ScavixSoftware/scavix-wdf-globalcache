@@ -76,12 +76,15 @@ function globalcache_init()
     switch( $CONFIG['globalcache']['CACHE'] )
     {
         case globalcache_CACHE_FILES:
+            require_once(__DIR__. '/src/wdffilecachewrapper.class.php');
             $GLOBALS['globalcache_handler'] = new WdfFileCacheWrapper($prefix);
             break;
         case globalcache_CACHE_DB:
+            require_once(__DIR__. '/src/wdfdbcachewrapper.class.php');
             $GLOBALS['globalcache_handler'] = new WdfDbCacheWrapper($prefix);
             break;
         default:
+            require_once(__DIR__. '/src/wdfoffcachewrapper.class.php');
             if( $CONFIG['globalcache']['CACHE'] != globalcache_CACHE_OFF )
                 log_warn("Globalcache handler {$CONFIG['globalcache']['CACHE']} not found/deprecated, falling back to OFF");
             $GLOBALS['globalcache_handler'] = new WdfOffCacheWrapper($prefix);
