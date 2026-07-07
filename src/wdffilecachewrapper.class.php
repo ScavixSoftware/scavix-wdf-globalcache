@@ -139,7 +139,7 @@ class WdfFileCacheWrapper
                 $val = $this->unpack($file,true);
                 if( !isset($val['exp']) || !$val['exp'] || $val['exp'] > time() )
                     return;
-                //usleep(100000);
+                //Wdf::SleepMS(100);
             }
             @unlink($file);
             //log_debug($file);
