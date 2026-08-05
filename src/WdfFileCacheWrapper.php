@@ -103,7 +103,10 @@ class WdfFileCacheWrapper
 
         $filemtime = @filemtime($file);
         if (isset($this->map[$key]) && $this->map[$key]['filemtime'] == $filemtime)
-            return $this->map[$key]['data'];
+        {
+            if( isset($this->map[$key]['exp']) && $this->map[$key]['exp'] > time() )
+                return $this->map[$key]['data'];
+        }
 
         $val = $this->unpack($file);
 
