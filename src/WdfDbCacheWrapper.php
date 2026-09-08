@@ -43,13 +43,18 @@ class WdfDbCacheWrapper
         }
     }
 
+    private function getKey($key)
+    {
+        return md5($this->id.$key);
+    }
+
     function get($key, $default)
     {
         try
         {
             $ret = $this->ds->ExecuteScalar(
                 "SELECT cvalue FROM wdf_cache WHERE ckey=? AND (valid_until IS NULL OR valid_until>=" . $this->ds->Driver->Now() . ")",
-                [md5($key)]
+                [$this->getKey($key)]
             );
         }
         catch (\Exception $ex)
@@ -71,13 +76,13 @@ class WdfDbCacheWrapper
             {
                 $this->ds->ExecuteSql(
                     "REPLACE INTO wdf_cache(ckey,full_key,cvalue,valid_until)VALUES(?,?,?,$now)",
-                    [md5($key), $key, $val]
+                    [$this->getKey($key), $key, $val]
                 );
             }
             else
                 $this->ds->ExecuteSql(
                     "REPLACE INTO wdf_cache(ckey,full_key,cvalue)VALUES(?,?,?)",
-                    [md5($key), $key, $val]
+                    [$this->getKey($key), $key, $val]
                 );
         }
         catch (\Exception $ex)
@@ -92,12 +97,12 @@ class WdfDbCacheWrapper
             if ($ttl > 0)
                 $this->ds->ExecuteSql(
                     "REPLACE INTO wdf_cache(ckey,full_key,cvalue,valid_until)VALUES(?,?,?,$now)",
-                    [md5($key), $key, $val]
+                    [$this->getKey($key), $key, $val]
                 );
             else
                 $this->ds->ExecuteSql(
                     "REPLACE INTO wdf_cache(ckey,full_key,cvalue)VALUES(?,?,?)",
-                    [md5($key), $key, $val]
+                    [$this->getKey($key), $key, $val]
                 );
         }
         return true;
@@ -107,7 +112,7 @@ class WdfDbCacheWrapper
     {
         try
         {
-            $this->ds->ExecuteSql("DELETE FROM wdf_cache WHERE ckey=?", md5($key));
+            $this->ds->ExecuteSql("DELETE FROM wdf_cache WHERE ckey=?", $this->getKey($key));
         }
         catch (\Exception $ex)
         {
