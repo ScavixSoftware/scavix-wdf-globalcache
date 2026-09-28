@@ -1,9 +1,9 @@
 {
   "bomFormat": "CycloneDX",
   "specVersion": "1.6",
-  "version": 8,
+  "version": 9,
   "metadata": {
-    "timestamp": "2026-09-02T09:07:21.420Z",
+    "timestamp": "2026-09-28T07:00:26.009Z",
     "manufacturer": {
       "name": "Scavix Software GmbH & Co. KG",
       "url": [
@@ -12,11 +12,11 @@
     },
     "component": {
       "type": "library",
-      "bom-ref": "pkg:composer/scavix/wdf-globalcache@1.1.5",
-      "purl": "pkg:composer/scavix/wdf-globalcache@1.1.5",
+      "bom-ref": "pkg:composer/scavix/wdf-globalcache@1.1.6",
+      "purl": "pkg:composer/scavix/wdf-globalcache@1.1.6",
       "group": "scavix",
       "name": "wdf-globalcache",
-      "version": "1.1.5",
+      "version": "1.1.6",
       "supplier": {
         "name": "Scavix Software GmbH & Co. KG",
         "url": [
@@ -48,11 +48,11 @@
   "components": [
     {
       "type": "library",
-      "bom-ref": "pkg:composer/scavix/wdf-globalcache@1.1.5",
-      "purl": "pkg:composer/scavix/wdf-globalcache@1.1.5",
+      "bom-ref": "pkg:composer/scavix/wdf-globalcache@1.1.6",
+      "purl": "pkg:composer/scavix/wdf-globalcache@1.1.6",
       "group": "scavix",
       "name": "wdf-globalcache",
-      "version": "1.1.5",
+      "version": "1.1.6",
       "supplier": {
         "name": "Scavix Software GmbH & Co. KG",
         "url": [
@@ -82,11 +82,11 @@
     },
     {
       "type": "library",
-      "bom-ref": "pkg:composer/scavix/wdf-core@1.1.4",
-      "purl": "pkg:composer/scavix/wdf-core@1.1.4",
+      "bom-ref": "pkg:composer/scavix/wdf-core@1.1.6",
+      "purl": "pkg:composer/scavix/wdf-core@1.1.6",
       "group": "scavix",
       "name": "wdf-core",
-      "version": "1.1.4",
+      "version": "1.1.6",
       "supplier": {
         "name": "Scavix Software GmbH & Co. KG",
         "url": [
@@ -233,13 +233,13 @@
   ],
   "dependencies": [
     {
-      "ref": "pkg:composer/scavix/wdf-globalcache@1.1.5",
+      "ref": "pkg:composer/scavix/wdf-globalcache@1.1.6",
       "dependsOn": [
-        "pkg:composer/scavix/wdf-core@1.1.4"
+        "pkg:composer/scavix/wdf-core@1.1.6"
       ]
     },
     {
-      "ref": "pkg:composer/scavix/wdf-core@1.1.4",
+      "ref": "pkg:composer/scavix/wdf-core@1.1.6",
       "dependsOn": [
         "pkg:composer/wikimedia/less.php@5.5.1",
         "external:jQuery@3.7.1",
